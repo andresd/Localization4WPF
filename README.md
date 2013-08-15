@@ -3,7 +3,11 @@ Localization4WPF
 
 A simple localization extension for WPF.
 
+**Nuget**
 
+http://www.nuget.org/packages/Localization4WPF/
+
+**Sample**
 
 ```xml
 <Window x:Class="DemoApplication.MainWindow"
