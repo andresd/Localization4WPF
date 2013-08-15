@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Localization4WPF
@@ -20,7 +21,7 @@ namespace Localization4WPF
 
         // ------------------------------------------------------------------
 
-        internal static ILocalizationService Instance { get; set; }
+        public static ILocalizationService Instance { get; set; }
 
         // ------------------------------------------------------------------
 
@@ -57,17 +58,25 @@ namespace Localization4WPF
         public void Register(string folder, UriKind kind, CultureInfo cultureInfo = null)
         {
             var language = cultureInfo != null ? cultureInfo.IetfLanguageTag + ".xml" : "en-us.xml";
-            var uri = new Uri( string.Join( "/", folder.TrimEnd( '/' ), language ), kind );
+            var uri = new Uri( string.Join( "/", new [] {folder.TrimEnd( '/' ), language } ), kind );
 
             var resourceStream = Application.GetResourceStream( uri );
             if( resourceStream != null )
             {
                 using( var stream = resourceStream.Stream )
                 {
-                    var xDoc = XDocument.Load( stream );
-                    foreach( XElement element in xDoc.Descendants( "String" ) )
+                    using( var reader = XmlReader.Create( stream ) )
                     {
-                        Register( element.Attribute( "Key" ).Value, element.Attribute( "Value" ).Value, CultureInfo.CurrentCulture );
+                        var xDoc = XDocument.Load( reader );
+                        foreach( XElement element in xDoc.Descendants( "String" ) )
+                        {
+                            var key = element.Attribute( "Key" );
+                            var value = element.Attribute( "Value" );
+                            if( key != null )
+                            {
+                                Register( key.Value, value == null ? string.Empty : value.Value, CultureInfo.CurrentCulture );
+                            }
+                        }
                     }
                 }
             }

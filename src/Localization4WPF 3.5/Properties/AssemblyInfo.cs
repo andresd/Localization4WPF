@@ -55,6 +55,5 @@ using System.Windows.Markup;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-
 [assembly: XmlnsPrefix( "http://schemas.denkberg.com/Localization4WPF/", "loc4wpf" )]
 [assembly: XmlnsDefinition( "http://schemas.denkberg.com/Localization4WPF/", "Localization4WPF" )]

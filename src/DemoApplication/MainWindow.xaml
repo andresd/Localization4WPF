@@ -1,12 +1,4 @@
-Localization4WPF
-================
-
-A simple localization extension for WPF.
-
-
-
-```xml
-<Window x:Class="DemoApplication.MainWindow"
+﻿<Window x:Class="DemoApplication.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:loc4wpf="http://schemas.denkberg.com/Localization4WPF/"
@@ -22,5 +14,3 @@ A simple localization extension for WPF.
         <TextBlock Text="{Binding Path=BindedText, Converter={StaticResource LocalizationConverter}}"/>
     </Grid>
 </Window>
-
-```

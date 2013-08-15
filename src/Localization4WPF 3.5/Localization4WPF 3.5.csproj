@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65FBBBB7-D3A3-45A2-A8A6-567F63482895}</ProjectGuid>
+    <ProjectGuid>{B5713B64-0FC9-46B5-BCEE-565F11E59B80}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Localization4WPF</RootNamespace>
     <AssemblyName>Localization4WPF</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +23,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,7 +31,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -44,23 +42,29 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILocalizationService.cs" />
-    <Compile Include="LocalizableDescriptionAttribute.cs" />
-    <Compile Include="LocalizationConverter.cs" />
-    <Compile Include="LocalizationService.cs" />
-    <Compile Include="LocalizeStringExtension.cs" />
+    <Compile Include="..\Localization4WPF\ILocalizationService.cs">
+      <Link>ILocalizationService.cs</Link>
+    </Compile>
+    <Compile Include="..\Localization4WPF\LocalizableDescriptionAttribute.cs">
+      <Link>LocalizableDescriptionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Localization4WPF\LocalizationConverter.cs">
+      <Link>LocalizationConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Localization4WPF\LocalizationService.cs">
+      <Link>LocalizationService.cs</Link>
+    </Compile>
+    <Compile Include="..\Localization4WPF\LocalizeStringExtension.cs">
+      <Link>LocalizeStringExtension.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
